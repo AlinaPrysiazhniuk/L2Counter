@@ -1,4 +1,5 @@
 import React from 'react';
+import { Controls } from './Controls';
 
 export class Counter extends React.Component {
   static defaultProps = {
@@ -25,14 +26,11 @@ export class Counter extends React.Component {
     return (
       <div>
         <span>{this.state.value}</span>
-        <div>
-          <button type="button" onClick={this.handleIncrement}>
-            Збільшити на 1
-          </button>
-          <button type="button" onClick={this.handleDecrement}>
-            Зменшити на 1
-          </button>
-        </div>
+
+        <Controls
+          onIncrement={this.handleIncrement}
+          onDecrement={this.handleDecrement}
+        />
       </div>
     );
   }
