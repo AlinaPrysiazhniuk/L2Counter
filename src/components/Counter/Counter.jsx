@@ -1,24 +1,24 @@
 import React from 'react';
 
 export class Counter extends React.Component {
+  static defaultProps = {
+    initialValue: 10,
+  };
+
   state = {
-    value: 0,
+    value: this.props.initialValue,
   };
 
   handleIncrement = () => {
-    this.setState(prevState => {
-      return {
-        value: prevState.value + 1,
-      };
-    });
+    this.setState(prevState => ({
+      value: prevState.value + 1,
+    }));
   };
 
   handleDecrement = () => {
-    this.setState(prevState => {
-      return {
-        value: prevState.value - 1,
-      };
-    });
+    this.setState(prevState => ({
+      value: prevState.value - 1,
+    }));
   };
 
   render() {
