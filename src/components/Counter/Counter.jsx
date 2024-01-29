@@ -1,8 +1,8 @@
 //import React from 'react';
 //import { Controls } from './Controls';
 //import { Value } from './Value';
-import { useState } from 'react';
-import { Value } from './Value';
+import { useState, useEffect } from 'react';
+//import { Value } from './Value';
 
 // export class Counter extends React.Component {
 //   static defaultProps = {
@@ -39,29 +39,36 @@ import { Value } from './Value';
 // }
 
 export default function CounterFunction() {
-  // const [counterA, setCounterA] = useState(0);
-  // const [counterB, setCounterB] = useState(0);
-  const [totalCounter, setTotalCounter] = useState(0);
+  const [counterA, setCounterA] = useState(0);
+  const [counterB, setCounterB] = useState(0);
+  const [totalClicks, setCount] = useState(0);
 
   const handleCounterAIncrement = () => {
-    // setCounterA(state => state + 1);
-    setTotalCounter(state => state + 1);
+    setCounterA(state => state + 1);
+    setCount(state => state + 1);
   };
 
   const handleCounterBIncrement = () => {
-    // setCounterB(state => state + 1);
-    setTotalCounter(state => state - 1);
+    setCounterB(state => state + 1);
+    setCount(state => state + 1);
   };
+
+  useEffect(() => {
+    // const totalClicks = counterA + counterB;
+    // console.log(totalClicks);
+    document.title = `totalClicks = ${totalClicks}`;
+    console.log(document.title);
+  });
 
   return (
     <>
-      <Value value={totalCounter} />
+      <p>Ви натиснули {totalClicks} разів</p>
       <button type="button" onClick={handleCounterAIncrement}>
-        Збільшити на 1
+        клацнули на counterA {counterA} разів
       </button>
 
       <button type="button" onClick={handleCounterBIncrement}>
-        Зменшити на 1
+        клацнули на counterB {counterB} разів
       </button>
     </>
   );
