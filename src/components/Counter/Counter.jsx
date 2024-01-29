@@ -39,18 +39,16 @@ import { useState, useEffect } from 'react';
 // }
 
 export default function CounterFunction() {
-  const [counterA, setCounterA] = useState(0);
-  const [counterB, setCounterB] = useState(0);
+  //const [counterA, setCounterA] = useState(0);
+  //const [counterB, setCounterB] = useState(0);
   const [totalClicks, setCount] = useState(0);
 
-  const handleCounterAIncrement = () => {
-    setCounterA(state => state + 1);
+  const handleCounterIncrement = () => {
     setCount(state => state + 1);
   };
 
-  const handleCounterBIncrement = () => {
-    setCounterB(state => state + 1);
-    setCount(state => state + 1);
+  const handleCounterDecrement = () => {
+    setCount(state => state - 1);
   };
 
   useEffect(() => {
@@ -63,12 +61,12 @@ export default function CounterFunction() {
   return (
     <>
       <p>Ви натиснули {totalClicks} разів</p>
-      <button type="button" onClick={handleCounterAIncrement}>
-        клацнули на counterA {counterA} разів
+      <button type="button" onClick={handleCounterIncrement}>
+        Збільшити на 1
       </button>
 
-      <button type="button" onClick={handleCounterBIncrement}>
-        клацнули на counterB {counterB} разів
+      <button type="button" onClick={handleCounterDecrement}>
+        Зменшити на 1
       </button>
     </>
   );
