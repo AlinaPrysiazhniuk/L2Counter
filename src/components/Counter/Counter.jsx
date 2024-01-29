@@ -43,13 +43,13 @@ export default function CounterFunction() {
   //const [counterB, setCounterB] = useState(0);
   const [totalClicks, setCount] = useState(0);
 
-  const handleCounterIncrement = () => {
-    setCount(state => state + 1);
-  };
+  // const handleCounterIncrement = () => {
+  //   setCount(state => state + 1);
+  // };
 
-  const handleCounterDecrement = () => {
-    setCount(state => state - 1);
-  };
+  // const handleCounterDecrement = () => {
+  //   setCount(state => state - 1);
+  // };
 
   useEffect(() => {
     // const totalClicks = counterA + counterB;
@@ -61,11 +61,11 @@ export default function CounterFunction() {
   return (
     <>
       <p>Ви натиснули {totalClicks} разів</p>
-      <button type="button" onClick={handleCounterIncrement}>
+      <button type="button" onClick={() => setCount(totalClicks + 1)}>
         Збільшити на 1
       </button>
 
-      <button type="button" onClick={handleCounterDecrement}>
+      <button type="button" onClick={() => setCount(totalClicks - 1)}>
         Зменшити на 1
       </button>
     </>
