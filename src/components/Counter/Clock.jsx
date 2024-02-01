@@ -3,13 +3,19 @@ import { useEffect, useState, useRef } from 'react';
 
 export default function Clock() {
   const [time, setTime] = useState(new Date());
-  const intervalId = useRef(null);
+  const intervalId = useRef();
+  // console.log(intervalId);
 
   useEffect(() => {
     intervalId.current = setInterval(() => {
       console.log('Це інтервал кожні 1000 ms' + Date.now());
       setTime(new Date());
     }, 1000);
+
+    return () => {
+      console.log('ця функція викликається перед кожним useEffect');
+      stop();
+    };
   }, []);
 
   const stop = () => {
